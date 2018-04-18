@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost:8880/www/'),
+    'url' => env('APP_URL', 'https://ponto-de-venda.herokuapp.com/'),
 
     /*
     |--------------------------------------------------------------------------
@@ -104,7 +104,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('base64:+3JbWlxNXk5ptEsFVleliyZw/zHN0T8ReUKbjYzRpeA='),
 
     'cipher' => 'AES-256-CBC',
 
