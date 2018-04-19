@@ -29,7 +29,7 @@
 	</div>
 @endsection
 <script type="text/javascript">
-	
+
 	$(document).ready(function(){
 			alert('teste');
 		}
@@ -55,7 +55,7 @@
 		max-width: 700px;
 		border:2px solid;
 		border-radius: 10px;
-		height: <?php 
+		height: <?php
 			function height($valor){
 				return ($valor/2 + 100);
 			}
@@ -87,5 +87,6 @@
 		border: none;
 		box-shadow: 2px 2px 2px 2px #CCCCCC;
 		background-color:blue;
+		cursor:pointer;
 	}
 </style>
