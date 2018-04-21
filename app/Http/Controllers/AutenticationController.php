@@ -10,14 +10,11 @@ class AutenticationController extends Controller
 
     }
 
-
     public function index(){
     	return view('dashboard');
     }
 
-
     public function select(Request $request){
-
     	if ($request->isMethod('post')){
     		return view('home');
     	}

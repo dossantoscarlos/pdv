@@ -13,6 +13,6 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/users/login' , 'AutenticationController@select');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/home' , 'AutenticationController@select');
 Route::get('/', 'AutenticationController@index');
