@@ -19,7 +19,7 @@ class AutenticationController extends Controller
     public function select(Request $request){
 
     	if ($request->isMethod('post')){
-    		return view('dashboard');
+    		return view('home');
     	}
     	//return view('dashboard');
     }
