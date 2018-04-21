@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title' , 'Dashboard')
-@section('dashboard')
+@section('content')
 	<div id='login'>
 		<form method="POST" accept-charset="utf-8" enctype="utf-8" action="/home">
 			<div class="columnDireita">
