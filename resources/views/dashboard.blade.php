@@ -2,7 +2,7 @@
 @section('title' , 'Dashboard')
 @section('content')
 	<div id='login'>
-		<form method="POST" accept-charset="utf-8" enctype="utf-8" action="/home">
+		<form method="POST" accept-charset="utf-8" enctype="utf-8" action="{{ route('home') }}">
 			<div class="columnDireita">
 				<div class="component" style="text-align: center; ">
 					<label style="font-size: 18pt;font-stretch: expanded"><b>Login-In</b></label>

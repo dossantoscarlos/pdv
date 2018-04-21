@@ -14,5 +14,5 @@
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/home' , 'AutenticationController@select');
+Route::post('/home' , 'AutenticationController@select')->name('home');
 Route::get('/', 'AutenticationController@index');
