@@ -13,6 +13,8 @@
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function (){
+  return view('cover.index');
+});
 Route::post('/home' , 'AutenticationController@select')->name('home');
-Route::get('/', 'AutenticationController@index');
+Route::get('/dashboard', 'AutenticationController@index')->name('dashboard');
