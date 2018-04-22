@@ -1,20 +1,20 @@
 @extends('layouts.app')
 @section('title' , 'Dashboard')
 @section('content')
-	<div id='login'>
+<div id='login'>
 		<form method="POST" accept-charset="utf-8" enctype="utf-8" action="{{ route('home') }}">
 			<div class="columnDireita">
 				<div class="component" style="text-align: center; ">
 					<label style="font-size: 18pt;font-stretch: expanded"><b>Login-In</b></label>
 				</div>
 				<div class="component">
-					<input type="text" placeholder="Usuario" name="users" required title='Campo de Usuario requerido' minlength="10" maxlength="10" />
+					<input type="text" placeholder="Usuario" name="users"  title='Campo de Usuario requerido' />
 				</div>
 				<div class="component" style="display:none">
 					@csrf
 				</div>
 				<div class="component">
-					<input type="password" name="pass" required="true" minlength="6" maxlength="10" title='Campo de Senha requerido' placeholder="********" />
+					<input type="password" name="pass"  title='Campo de Senha requerido' placeholder="********" />
 				</div>
 
 				<div class="component">
@@ -27,21 +27,34 @@
 			</div>
 		</form>
 	</div>
+	<div class="component">
+		@if ($errors->any())
+			<div class="alert alert-danger">
+				<ul class="lista">
+						@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+						@endforeach
+				</ul>
+			</div>
+		@endif
+	</div>
 @endsection
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
 	$(document).ready(function(){
 			alert('teste');
 		}
 	);
 
-</script>
+</script> -->
 <style type="text/css">
 	*{
 		padding: 0;
 		margin: 0 auto;
 	}
-
+	.lista{
+		list-style: none;
+	}
 	.columnDireita{
 		margin-top: 0 auto;
 		margin-top: 10%;
@@ -89,4 +102,8 @@
 		background-color:blue;
 		cursor:pointer;
 	}
+
+
+
+
 </style>

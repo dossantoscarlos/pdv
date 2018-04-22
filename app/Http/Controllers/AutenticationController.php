@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CnpjLoginForm;
+use Illuminate\Support\Facades\Log;
 
 class AutenticationController extends Controller
 {
@@ -14,12 +16,14 @@ class AutenticationController extends Controller
     	return view('dashboard');
     }
 
-    public function select(Request $request){
+    public function select(CnpjLoginForm $request){
     	if ($request->isMethod('post')){
-    		return view('home');
-    	}
-    	//return view('dashboard');
+        if ($request->validated()){
+          Log::debug($request);
+          return view('home');
+        }else{
+          return view('dashboard');
+        }
+      }
     }
-
-
 }
