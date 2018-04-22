@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://ponto-de-venda.herokuapp.com/'),
+    'url' => env('APP_URL', 'https://ponto-de-venda.herokuapp.com/public/'),
 
     /*
     |--------------------------------------------------------------------------
