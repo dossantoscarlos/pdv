@@ -21,7 +21,7 @@
            beautiful home pages. Download, edit the text, and add your own
            fullscreen background photo to make it your own.</p>
         <p class="lead">
-          <a href="{{route('dashboard')}}" class="btn btn-lg btn-primary">Login</a>
+          <a href="{{route('dashboard')}}" class="btn btn-lg btn-primary">Iniciar Sessão</a>
         </p>
       </main>
 
