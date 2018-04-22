@@ -1,4 +1,4 @@
 <?php
-$redirect = 'http://ponto-de-venda.heroku.com/public/index.php';
+$redirect = 'https://ponto-de-venda.herokuapp.com/public/';
 
-header("location: $redirect"); 
+header("location: $redirect");
