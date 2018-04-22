@@ -12,7 +12,7 @@
 */
 
 $app = new Illuminate\Foundation\Application(
-    realpath(__DIR__.'/../public')
+    realpath(__DIR__.'/../')
 );
 
 /*
