@@ -38,8 +38,9 @@ class CnpjLoginForm extends FormRequest
         return [
             'users.required' => 'Usuario é requerido',
             'users.numeric' => 'O usuario invalido use somente numeros',
-            'pass.required'  => 'Senha é requerido',
-
+            'pass.required' => 'Senha é requerido',
+            'pass.max' => 'voce exedeu o limite de caracter',
+            'users.max' => 'voce exedeu o limite de caracter'
         ];
     }
 
