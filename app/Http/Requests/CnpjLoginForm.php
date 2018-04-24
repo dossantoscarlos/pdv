@@ -24,8 +24,8 @@ class CnpjLoginForm extends FormRequest
     public function rules()
     {
         return [
-            'users' => 'required|numeric|max:10',
-            'pass' => 'required|max:10'
+            'users' => 'required|numeric|min:10',
+            'pass' => 'required|min:10'
         ];
     }
     /**
@@ -39,7 +39,7 @@ class CnpjLoginForm extends FormRequest
             'users.required' => 'Usuario é requerido',
             'users.numeric' => 'O usuario invalido use somente numeros',
             'pass.required' => 'Senha é requerido',
-            'max' => 'senha ou users incorreta',
+            'min' => 'senha ou users incorreta',
 
         ];
     }
