@@ -17,4 +17,4 @@ Route::get('/', function (){
   return view('cover.index');
 });
 Route::post('/home' , 'AutenticationController@select')->name('home');
-Route::get('/dashboard', 'AutenticationController@index')->name('dashboard');
+//Route::get('/dashboard', 'AutenticationController@index')->name('dashboard');
