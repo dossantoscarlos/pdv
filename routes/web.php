@@ -1,6 +1,6 @@
-<?php
-
-/*
+<? php
+Detalhes
+/ *
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -11,10 +11,11 @@
 |
 */
 
-Auth::routes();
-
-Route::get('/', function (){
+Auth :: routes ();
+Detalhes
+Route :: get ( '/' , function () {
   return view('cover.index');
 });
-Route::post('/home' , 'AutenticationController@select')->name('home');
-//Route::get('/dashboard', 'AutenticationController@index')->name('dashboard');
+Route :: get ( '/ home' , 'AutenticationController @ select' ) ->  nome ( 'home' );
+// Route :: get ('/ dashboard', 'AutenticationController @ index') -> nome ('painel');
+Detalhes
