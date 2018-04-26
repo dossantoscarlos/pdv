@@ -1,5 +1,5 @@
 <? php
-Detalhes
+
 / *
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,10 +12,9 @@ Detalhes
 */
 
 Auth :: routes ();
-Detalhes
+
 Route :: get ( '/' , function () {
   return view('cover.index');
 });
 Route :: get ( '/ home' , 'AutenticationController @ select' ) ->  nome ( 'home' );
 // Route :: get ('/ dashboard', 'AutenticationController @ index') -> nome ('painel');
-Detalhes
