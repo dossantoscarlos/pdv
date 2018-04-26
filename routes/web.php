@@ -16,5 +16,5 @@ Auth::routes();
 Route::get( '/' , function () {
   return view('cover.index');
 });
-Route::get( '/ home' , 'AutenticationController @ select' )->name( 'home' );
-// Route::get ('/ dashboard', 'AutenticationController @ index')->name('painel');
+Route::get( '/home' , 'AutenticationController @ select' )->name( 'home' );
+// Route::get ('/dashboard', 'AutenticationController @ index')->name('painel');
