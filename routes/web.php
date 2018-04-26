@@ -11,10 +11,10 @@
 |
 */
 
-Auth::routes ();
+Auth::routes();
 
-Route::get ( '/' , function () {
+Route::get( '/' , function () {
   return view('cover.index');
 });
-Route::get ( '/ home' , 'AutenticationController @ select' ) ->  nome ( 'home' );
-// Route::get ('/ dashboard', 'AutenticationController @ index') -> nome ('painel');
+Route::get( '/ home' , 'AutenticationController @ select' )->name( 'home' );
+// Route::get ('/ dashboard', 'AutenticationController @ index')->name('painel');
