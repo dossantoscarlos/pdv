@@ -31,22 +31,14 @@
 		@if ($errors->any())
 			<div class="alert alert-danger">
 				<ul class="lista">
-						@foreach ($errors->all() as $error)
-								<li>{{ $error }}</li>
-						@endforeach
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
 				</ul>
 			</div>
 		@endif
 	</div>
 @endsection
-<!-- <script type="text/javascript">
-
-	$(document).ready(function(){
-			alert('teste');
-		}
-	);
-
-</script> -->
 <style type="text/css">
 	*{
 		padding: 0;

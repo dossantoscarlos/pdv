@@ -27,34 +27,13 @@
 
       <footer class="mastfoot mt-auto">
         <div class="inner">
-          <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>,
-            by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+          <p>Cover template for.</p>
         </div>
       </footer>
     </div>
   </div>
   <style type="text/css">
-    a,
-    a:focus,
-    a:hover {
-    color: #fff;
-    }
-
-    /* Custom default button */
-    .btn-secondary,
-    .btn-secondary:hover,
-    .btn-secondary:focus {
-      color: #333;
-      text-shadow: none; /* Prevent inheritance from `body` */
-      background-color: #fff;
-      border: .05rem solid #fff;
-    }
-
-
-    /*
-    * Base structure
-    */
-
+    
     html,body{
     height: 100%;
     background-color: #333;
