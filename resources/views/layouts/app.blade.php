@@ -9,10 +9,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title','Home')</title>
-
-    <script src="{{ secure_asset('js/app.js') }}"></script>
-
-    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    @if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' )
+        <script src="{{ secure_asset('js/app.js') }}"></script>
+        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    @else 
+        <script src="{{ asset('js/app.js') }}"></script>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @endif
 </head>
 <body>
     @yield('content')
