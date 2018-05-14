@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('title' , 'Bem Vindo')
 @section('content')
+<?php 
+    $httpArray = explode(':', $_SERVER['HTTP_REFERER']);
+    $https = 'https';
+?>
 <div class="content">
     <ul class="nav justify-content-end navbar-dark">
         <li class="nav-item text-center">
@@ -13,10 +17,7 @@
            <div class="text-center">
               <main role="main" class="inner cover">
                 <figure class="figure figure-img">
-                    <?php 
-                        $httpArray = explode(':', $_SERVER['HTTP_REFERER']);
-                        $https = 'https';
-                     ?>
+                   
                     @if (in_array($https, $httpArray)) 
                         <img src="{{secure_asset('storage/logos/logo.png')}}" class="img-fluid "> 
                     @else
@@ -24,8 +25,13 @@
                     @endif
                 </figure>
                 <p class="lead">
-                    <a href="{{route('login',false)}}" class="cover btn-lg btn-default">Iniciar PDV</a>
-                    <a href="{{route('consulta_index')}}" class="cover btn-lg btn-default">Consultar Preço</a>
+                    @if (in_array($https, $httpArray)) 
+                        @component('components.buttonHttps')
+                        @endcomponent
+                    @else
+                        @component('components.buttonHttp')
+                        @endcomponent
+                    @endif
                 </p>
               </main>
             </div>
@@ -79,10 +85,6 @@
 
     @font-face{
         font-family: 'Sawasdee';
-       <?php 
-            $httpArray = explode(':', $_SERVER['HTTP_REFERER']);
-            $https = 'https';
-        ?>
         @if (in_array($https, $httpArray))
             src:local('Sawasdee.ttf'),url({{secure_asset('font/Sawasdee.ttf')}});
         @else 
