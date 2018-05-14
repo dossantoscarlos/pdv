@@ -10,6 +10,6 @@
   $url = $_SERVE['HTTP_REFERER'];
   $index = '/public/';
   $concatena  = $url.$index;
-  header($concatena);
+  header('Location:'.$concatena);
 ?>
 
