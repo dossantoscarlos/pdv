@@ -13,13 +13,15 @@
            <div class="text-center">
               <main role="main" class="inner cover">
                 <figure class="figure figure-img">
-                    @if ($_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.0') 
+                    <?php 
+                        $httpArray = explode(':', $_SERVER['HTTP_REFERER']);
+                        $https = 'https';
+                     ?>
+                    @if (in_array($https, $httpArray)) 
                         <img src="{{secure_asset('storage/logos/logo.png')}}" class="img-fluid "> 
                     @else
                         <img src="{{asset('storage/logos/logo.png')}}" class="img-fluid">
                     @endif
-
-                    <?php echo $_SERVER['HTTP_REFERER']; ?>
                 </figure>
                 <p class="lead">
                     <a href="{{route('login')}}" class="cover btn-lg btn-default">Iniciar PDV</a>

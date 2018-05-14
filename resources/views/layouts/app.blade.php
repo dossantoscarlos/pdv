@@ -9,7 +9,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title','Home')</title>
-    @if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' )
+    <?php 
+        $pos = strripos($_SERVER['HTTP_REFERER'] , "https"); 
+    ?>
+    @if( $pos === true )
         <script src="{{ secure_asset('js/app.js') }}"></script>
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     @else 
