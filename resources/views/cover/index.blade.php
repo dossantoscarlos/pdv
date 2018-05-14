@@ -83,7 +83,7 @@
             $httpArray = explode(':', $_SERVER['HTTP_REFERER']);
             $https = 'https';
         ?>
-        @if (in_array($https, $https))
+        @if (in_array($https, $httpArray))
             src:local('Sawasdee.ttf'),url({{secure_asset('font/Sawasdee.ttf')}});
         @else 
             src:local('Sawasdee.ttf'),url({{asset('font/Sawasdee.ttf')}});
