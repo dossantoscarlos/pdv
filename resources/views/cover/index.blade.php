@@ -19,7 +19,7 @@
                         <img src="{{asset('storage/logos/logo.png')}}" class="img-fluid">
                     @endif
 
-                    <?php echo $_SERVER['HTTPS'] ?>
+                    <?php echo $_SERVER['SERVER_PROTOCOL']; ?>
                 </figure>
                 <p class="lead">
                     <a href="{{route('login')}}" class="cover btn-lg btn-default">Iniciar PDV</a>
