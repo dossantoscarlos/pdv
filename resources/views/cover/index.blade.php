@@ -24,7 +24,7 @@
                     @endif
                 </figure>
                 <p class="lead">
-                    <a href="{{route('login')}}" class="cover btn-lg btn-default">Iniciar PDV</a>
+                    <a href="{{route('login',false)}}" class="cover btn-lg btn-default">Iniciar PDV</a>
                     <a href="{{route('consulta_index')}}" class="cover btn-lg btn-default">Consultar Preço</a>
                 </p>
               </main>
