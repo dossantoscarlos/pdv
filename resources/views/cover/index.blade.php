@@ -79,7 +79,11 @@
 
     @font-face{
         font-family: 'Sawasdee';
-        @if( $_SERVER['HTTP_REFERER'] == 'HTTP/1.0')
+       <?php 
+            $httpArray = explode(':', $_SERVER['HTTP_REFERER']);
+            $https = 'https';
+        ?>
+        @if (in_array($https, $https))
             src:local('Sawasdee.ttf'),url({{secure_asset('font/Sawasdee.ttf')}});
         @else 
             src:local('Sawasdee.ttf'),url({{asset('font/Sawasdee.ttf')}});

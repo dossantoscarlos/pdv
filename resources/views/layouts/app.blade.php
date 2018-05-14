@@ -10,9 +10,10 @@
 
     <title>@yield('title','Home')</title>
     <?php 
-        $pos = strripos($_SERVER['HTTP_REFERER'] , "https"); 
+        $httpArray = explode(':', $_SERVER['HTTP_REFERER']);
+        $https = 'https';
     ?>
-    @if( $pos === true )
+    @if (in_array($https, $httpArray)) 
         <script src="{{ secure_asset('js/app.js') }}"></script>
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     @else 
