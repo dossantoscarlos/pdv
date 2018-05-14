@@ -77,7 +77,7 @@
 
     @font-face{
         font-family: 'Sawasdee';
-        @if( $_SERVER['HTTPS'] == 'on')
+        @if( $_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.0')
             src:local('Sawasdee.ttf'),url({{secure_asset('font/Sawasdee.ttf')}});
         @else 
             src:local('Sawasdee.ttf'),url({{asset('font/Sawasdee.ttf')}});
