@@ -19,7 +19,7 @@
                         <img src="{{asset('storage/logos/logo.png')}}" class="img-fluid">
                     @endif
 
-                    <?php echo $_SERVER['SERVER_PROTOCOL']; ?>
+                    <?php echo $_SERVER['HTTP_REFERER']; ?>
                 </figure>
                 <p class="lead">
                     <a href="{{route('login')}}" class="cover btn-lg btn-default">Iniciar PDV</a>
@@ -77,7 +77,7 @@
 
     @font-face{
         font-family: 'Sawasdee';
-        @if( $_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.0')
+        @if( $_SERVER['HTTP_REFERER'] == 'HTTP/1.0')
             src:local('Sawasdee.ttf'),url({{secure_asset('font/Sawasdee.ttf')}});
         @else 
             src:local('Sawasdee.ttf'),url({{asset('font/Sawasdee.ttf')}});
