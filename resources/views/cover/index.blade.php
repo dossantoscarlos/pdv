@@ -13,7 +13,7 @@
            <div class="text-center">
               <main role="main" class="inner cover">
                 <figure class="figure figure-img">
-                    @if ($_SERVER['HTTPS'] == 'on') 
+                    @if ($_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.0') 
                         <img src="{{secure_asset('storage/logos/logo.png')}}" class="img-fluid "> 
                     @else
                         <img src="{{asset('storage/logos/logo.png')}}" class="img-fluid">
