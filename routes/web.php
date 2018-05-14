@@ -13,8 +13,10 @@
 
 Auth::routes();
 
-Route::get( '/' , function () {
+Route::get('/' , function(){
   return view('cover.index');
 });
-Route::get( '/home' , 'AutenticationController @ select' )->name( 'home' );
-// Route::get ('/dashboard', 'AutenticationController @ index')->name('painel');
+
+Route::get('/home' , 'HomeController@index')->name('home');
+Route::get('/pdv', 'PdvController@index')->name('pdv');
+Route::get('/consulta', 'ConsultaController@index')->name('consulta_index');
