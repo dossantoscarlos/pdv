@@ -7,6 +7,7 @@
 ?>
 <div class="content">
     <ul class="nav justify-content-end navbar-dark">
+        <li id='#app' style="display: none" ></li>
         <li class="nav-item text-center">
             <span id="date"></span><br/>
             <span id='hora'></span>
@@ -62,20 +63,17 @@
 </footer>
 <script type="text/javascript">
     $(document).ready(function (){
-        window.setInterval(hora(), 1000);
-    });
-
-    function hora(){
         var array_mes = ["01","02","03","04","05","06","07","08","09", "10","11","12"];
         var data = new Date();
+        function hora (){
+            var hora  = new Date()
+            var t = hora.toLocaleTimeString();
+            document.getElementById("hora").innerHTML = t;
+            console.log( hora.toLocaleTimeString())
+        }
         $('#date').text(data.getDate()+'/'+array_mes[data.getMonth()]+'/'+data.getFullYear());
-        if (data.getHours() <10){
-            $('#hora').text('0'+data.getHours()+":"+data.getMinutes());   
-        }
-        else{
-            $('#hora').text(data.getHours()+":"+data.getMinutes()+':'+data.getSeconds());
-        }
-    }
+         var mhora = setInterval( function (){ hora() }, 1000);
+    }); 
 </script>
   <style type="text/css">
     
@@ -192,8 +190,6 @@
           float: right;
         }
     }
-
-
     /*
     * Cover
     */
