@@ -40,7 +40,7 @@
 <footer class="footer">
     <div class="container-fluid row">
         <copy class='col-md-2'>CopyRight</copy>
-        <div id='statusLabel' class="col-md-2 offset-md-6"> 
+        <div id='statusLabel' class="col-md-2 offset-md-4"> 
             <span class="label">Status : </span>
             <span class="">
                  @if (fsockopen("www.example.com", 80, $errno, $errstr, 30)==false)
@@ -52,7 +52,7 @@
         </div>
         <div class="col-md-2">
             <span class="label">HOST : </span>
-            <span>{{ $_SERVER['REMOTE_HOST']}}</span>
+            <span>{{ gethostbyaddr($_SERVER['REMOTE_ADDR'])}}</span>
         </div>
         <div class="col-md-2 offset-md-0" >
             <span class="label">IP LOCAL : </span>
