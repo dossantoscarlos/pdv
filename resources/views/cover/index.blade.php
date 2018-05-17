@@ -95,7 +95,7 @@
     }
 
     .footer{
-        height: 40px;
+        min-height: 5vh;
         border-color: #022;
         color: #FFF;
         text-align: center;
