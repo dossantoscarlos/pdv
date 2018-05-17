@@ -50,7 +50,7 @@
                 @endif
             </span>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-4">
             <span class="label">HOST : </span>
             <span>{{ gethostbyaddr($_SERVER['REMOTE_ADDR'])}}</span>
         </div>
