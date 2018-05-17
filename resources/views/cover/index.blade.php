@@ -39,8 +39,8 @@
 </div>
 <footer class="footer">
     <div class="container-fluid row">
-        <copy class='col-md-2'>CopyRight</copy>
-        <div id='statusLabel' class="col-md-2 offset-md-2"> 
+        <copy class='col-md-1'>CopyRight</copy>
+        <div id='statusLabel' class="col-md-1 offset-md-2"> 
             <span class="label">Status : </span>
             <span class="">
                  @if (fsockopen("www.example.com", 80, $errno, $errstr, 30)==false)
