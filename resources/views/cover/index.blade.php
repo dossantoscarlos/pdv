@@ -62,16 +62,20 @@
 </footer>
 <script type="text/javascript">
     $(document).ready(function (){
+        window.setInterval(hora(), 1000);
+    });
+
+    function hora(){
         var array_mes = ["01","02","03","04","05","06","07","08","09", "10","11","12"];
         var data = new Date();
         $('#date').text(data.getDate()+'/'+array_mes[data.getMonth()]+'/'+data.getFullYear());
         if (data.getHours() <10){
-            $('#hora').text('0'+data.getHours()+":"+data.getMinutes()+':'+data.getSeconds());
+            $('#hora').text('0'+data.getHours()+":"+data.getMinutes());   
         }
         else{
             $('#hora').text(data.getHours()+":"+data.getMinutes()+':'+data.getSeconds());
         }
-    });
+    }
 </script>
   <style type="text/css">
     
