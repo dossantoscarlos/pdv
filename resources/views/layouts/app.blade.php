@@ -10,7 +10,7 @@
 
     <title>@yield('title','Home')</title>
     <?php 
-        $httpArray = explode(':', $_SERVER['HTTP_REFERER']);
+        $httpArray = explode(':', ((isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : 'http'));
         $https = 'https';
     ?>
     @if (in_array($https, $httpArray)) 

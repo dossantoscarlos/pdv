@@ -2,7 +2,7 @@
 @section('title' , 'Bem Vindo')
 @section('content')
 <?php 
-    $httpArray = explode(':', $_SERVER['HTTP_REFERER']);
+    $httpArray = explode(':', ((isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : 'http'));
     $https = 'https';
 ?>
 <div class="content">
@@ -17,7 +17,6 @@
            <div class="text-center">
               <main role="main" class="inner cover">
                 <figure class="figure figure-img">
-                   
                     @if (in_array($https, $httpArray)) 
                         <img src="{{secure_asset('storage/logos/logo.png')}}" class="img-fluid "> 
                     @else
@@ -39,7 +38,20 @@
     </div>
 </div>
 <footer class="footer">
-    testa
+    <div class="container-fluid row">
+        <copy class='col-md-2'>CopyRight</copy>
+        <div id='statusLabel' class="col-md-2 offset-md-6"> 
+            <span id='statusLabel'>Status : </span>
+            <span class="status">
+                 @if (fsockopen("www.example.com", 80, $errno, $errstr, 30)==false)
+                    DESCONECTADA
+                @else
+                    CONECTADA
+                @endif
+            </span>
+        </div>
+        <div class="col-md-2 offset-md-0" ><span id='ipLabel'>IP LOCAL : </span><span class="ip">{{ $_SERVER['REMOTE_ADDR']}}</span></div>
+    </div>
 </footer>
 <script type="text/javascript">
     $(document).ready(function (){
@@ -56,6 +68,14 @@
 </script>
   <style type="text/css">
     
+    span#statusLabel, span#ipLabel{
+        color: rgba(233,233,4,1);
+    }
+
+    span#status, span#ip{
+        color:#fff !important;
+    }
+
     html,body{
         height: 100%;
         /*background-color: #333;*/
