@@ -41,8 +41,8 @@
     <div class="container-fluid row">
         <copy class='col-md-2'>CopyRight</copy>
         <div id='statusLabel' class="col-md-2 offset-md-6"> 
-            <span id='statusLabel'>Status : </span>
-            <span class="status">
+            <span class="label">Status : </span>
+            <span class="">
                  @if (fsockopen("www.example.com", 80, $errno, $errstr, 30)==false)
                     DESCONECTADA
                 @else
@@ -50,7 +50,14 @@
                 @endif
             </span>
         </div>
-        <div class="col-md-2 offset-md-0" ><span id='ipLabel'>IP LOCAL : </span><span class="ip">{{ $_SERVER['REMOTE_ADDR']}}</span></div>
+        <div class="col-md-2">
+            <span class="label">HOST : </span>
+            <span>{{ $_SERVER['REMOTE_HOST']}}</span>
+        </div>
+        <div class="col-md-2 offset-md-0" >
+            <span class="label">IP LOCAL : </span>
+            <span class="ip">{{ $_SERVER['REMOTE_ADDR']}}</span>
+        </div>
     </div>
 </footer>
 <script type="text/javascript">
@@ -68,7 +75,7 @@
 </script>
   <style type="text/css">
     
-    span#statusLabel, span#ipLabel{
+    .label{
         color: rgba(233,233,4,1);
     }
 
