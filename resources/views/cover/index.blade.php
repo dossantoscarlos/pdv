@@ -7,7 +7,6 @@
 ?>
 <div class="content">
     <ul class="nav justify-content-end navbar-dark">
-        <li id='#app' style="display: none" ></li>
         <li class="nav-item text-center">
             <span id="date"></span><br/>
             <span id='hora'></span>
