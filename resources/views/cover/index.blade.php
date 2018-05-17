@@ -40,7 +40,7 @@
 <footer class="footer">
     <div class="container-fluid row">
         <copy class='col-md-1'>CopyRight</copy>
-        <div id='statusLabel' class="col-md-1 offset-md-2"> 
+        <div id='statusLabel' class="col-md-2 offset-md-3"> 
             <span class="label">Status : </span>
             <span class="">
                  @if (fsockopen("www.example.com", 80, $errno, $errstr, 30)==false)
@@ -54,7 +54,7 @@
             <span class="label">HOST : </span>
             <span>{{ gethostbyaddr($_SERVER['REMOTE_ADDR'])}}</span>
         </div>
-        <div class="col-md-2 offset-md-0" >
+        <div class="col-md-2" >
             <span class="label">IP LOCAL : </span>
             <span class="ip">{{ $_SERVER['REMOTE_ADDR']}}</span>
         </div>
@@ -63,14 +63,12 @@
 <script type="text/javascript">
     $(document).ready(function (){
         var array_mes = ["01","02","03","04","05","06","07","08","09", "10","11","12"];
-        var data = new Date();
         function hora (){
-            var hora  = new Date()
-            var t = hora.toLocaleTimeString();
+            var data = new Date()
+            var t = data.toLocaleTimeString();
             document.getElementById("hora").innerHTML = t;
-            console.log( hora.toLocaleTimeString())
+            $('#date').text(data.getDate()+'/'+array_mes[data.getMonth()]+'/'+data.getFullYear());
         }
-        $('#date').text(data.getDate()+'/'+array_mes[data.getMonth()]+'/'+data.getFullYear());
          var mhora = setInterval( function (){ hora() }, 1000);
     }); 
 </script>
@@ -89,8 +87,9 @@
         /*background-color: #333;*/
         background-color: #FFF;
     }
-    .footer, ul , .cover .btn-lg{
+    ul , .cover .btn-lg{
         background-color: #333;
+
     }
     body {
       min-height: 100%;
@@ -104,7 +103,8 @@
 
     .footer{
         min-height: 5vh;
-        border-color: #022;
+        border: 5px solid #333 !important;
+        background-color: #333;
         color: #FFF;
         text-align: center;
         padding: 12px;
