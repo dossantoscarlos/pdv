@@ -7,9 +7,15 @@
  -->
 
 <?php 
-  $url = $_SERVE['HTTP_REFERER'];
+  $url = (isset($_SERVE['HTTP_REFERER'])) $_SERVE['HTTP_REFERER']: '/public/';
   $index = '/public/';
-  $concatena  = $url.$index;
-  header('Location:'.$concatena);
+  if($url != $index){
+  	$concatena  = $url.$index;
+  	header('Location:'.$concatena);
+  }else{
+ 	header('Location:'.$url);
+  }
+  
+  
 ?>
 

@@ -3,78 +3,85 @@
 @section('content')
 <style type="text/css">
   #main{
-    margin-top:10%;
+    margin-top:2%;
   }
 </style>
+<?php
+    $httpArray = explode(':', ((isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : 'http'));
+    $https = 'https';
+?>
+@component('components.navbarDiaHora')
+@endcomponent
 <div class="container" id='main'>
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            </div>
-                        </div>
-                        <P></p>
-                        <div class="form-group row mb-0">
-                          <div class="offset-md-5">
-                            <a href="{{ route('register') }}" class="btn btn-primary">Register user</a>
-                          </div>
-                        </div>
-                    </form>
+        <div class="row justify-content-center">
+            <div class='col-md-6' id='divfigure'>
+                <div>
+                    <img src="{{asset('storage/login-password.png')}}" class="img-fluid" id='login-password'>
                 </div>
+                <figure class="figure figure-im">
+                    @if(in_array($https, $httpArray))
+                        <img src="{{secure_asset('storage/logo_fundo_branco.png')}}" class="img-fluid"/>
+                    @else
+                        <img src="{{asset('storage/logo_fundo_branco.png')}}" class="img-fluid"/>
+                    @endif
+                </figure>
+            </div>
+            <div class="col-md-6" id='form'>
+                <form>
+                    <div class="row col-md-12 d-flex align-items-end">
+                        <img src="{{asset('storage/cadeado.png')}}" class="imgWidht">
+                        <span class="col-md-6 mt-auto">
+                            <b>{{strtoupper('Login')}}<br/>
+                            {{strtoupper('Acesso PDV Vendas')}}</b>
+                        </span>
+                    </div>
+                    <div class="col-md-9 p-2">
+                       <input type="text" name="" class='form-control' placeholder="Usuario" />
+                    </div>
+                    <div class="col-md-9 p-2">
+                        <input type="password" name="" class="form-control" placeholder="Senha"/>
+                    </div>
+                    <div class=" col-md-9 d-flex align-items-end flex-column">
+                        <div class="p-1">
+                            <button type="Button" class="btn btn-primary">Enter</button>
+                        </div>
+                        <div class="p-1">
+                            <button type="Button" class='btn btn-primary'>Limpar Tela</button>
+                        </div>
+                        <div class="p-1">
+                            <button type="button" class='btn btn-primary'>Cancelar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
 </div>
+<style type="text/css">
+    #login-password{
+        height: 64px;
+        opacity:0.7; /* Firefox & Chrome */
+        filter:alpha(opacity=70); /* IE */
+    }
+    div#form{
+        padding-top: 7%;
+    }
+    figure{
+        border: 0 solid blue;
+    }
+
+    .imgWidht{
+        width: 70px;
+        height: 70px;
+    }
+    .btn{
+      width: 100px;
+      background-color: #333;
+      border:0 solid #333;
+    }
+     .btn:hover{
+       background-color: #ccc;
+       border:0 solid #333;
+       color:#000;
+     }
+</style>
 @endsection
