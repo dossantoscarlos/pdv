@@ -1,5 +1,5 @@
 <script type="text/javascript">
-(function (){
+(function () {
   var href = location.href;
   window.location = href+'public/';
 })();
