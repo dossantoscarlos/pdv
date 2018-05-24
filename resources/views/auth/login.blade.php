@@ -15,19 +15,16 @@
 <div class="container" id='main'>
         <div class="row justify-content-center">
             <div class='col-md-6' id='divfigure'>
-                <div>
-                    <img src="{{asset('storage/login-password.png')}}" class="img-fluid" id='login-password'>
-                </div>
                 <figure class="figure figure-im">
                     @if(in_array($https, $httpArray))
-                        <img src="{{secure_asset('storage/logo_fundo_branco.png')}}" class="img-fluid"/>
+                        <img src="{{secure_asset('storage/logos/Telaloginicon.png')}}" class="img-fluid"/>
                     @else
-                        <img src="{{asset('storage/logo_fundo_branco.png')}}" class="img-fluid"/>
+                        <img src="{{asset('storage/logos/Telaloginicon.png')}}" class="img-fluid"/>
                     @endif
                 </figure>
             </div>
             <div class="col-md-6" id='form'>
-                <form>
+              <form method="POST" action="{{ route('login') }}">
                     <div class="row col-md-12 d-flex align-items-end">
                         <img src="{{asset('storage/cadeado.png')}}" class="imgWidht">
                         <span class="col-md-6 mt-auto">
@@ -36,20 +33,31 @@
                         </span>
                     </div>
                     <div class="col-md-9 p-2">
-                       <input type="text" name="" class='form-control' placeholder="Usuario" />
+                      <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                      @if ($errors->has('email'))
+                          <span class="invalid-feedback">
+                              <strong>{{ $errors->first('email') }}</strong>
+                          </span>
+                      @endif
                     </div>
                     <div class="col-md-9 p-2">
-                        <input type="password" name="" class="form-control" placeholder="Senha"/>
-                    </div>
-                    <div class=" col-md-9 d-flex align-items-end flex-column">
+                      <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                      @if ($errors->has('password'))
+                          <span class="invalid-feedback">
+                              <strong>{{ $errors->first('password') }}</strong>
+                          </span>
+                      @endif                    </div>
+                    <div class="remove_right_padding col-md-9 d-flex align-items-end flex-column">
                         <div class="p-1">
-                            <button type="Button" class="btn btn-primary">Enter</button>
+                          <button type="submit" class="btn btn-primary">
+                              {{ __('Enter') }}
+                          </button>
                         </div>
                         <div class="p-1">
-                            <button type="Button" class='btn btn-primary'>Limpar Tela</button>
+                            <button type="Reset" class='btn btn-primary'>{{__('Limpar Campos')}}</button>
                         </div>
                         <div class="p-1">
-                            <button type="button" class='btn btn-primary'>Cancelar</button>
+                            <a href='{{url('/')}}' class='btn btn-primary'>{{__('Cancelar')}}</a>
                         </div>
                     </div>
                 </form>
@@ -66,15 +74,18 @@
         padding-top: 7%;
     }
     figure{
-        border: 0 solid blue;
+        margin-top:10%;
     }
 
     .imgWidht{
         width: 70px;
         height: 70px;
     }
+    .remove_right_padding{
+      padding-right: 0 !important;
+    }
     .btn{
-      width: 100px;
+      width: 150px;
       background-color: #333;
       border:0 solid #333;
     }
