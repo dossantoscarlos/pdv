@@ -2,16 +2,12 @@
 @section('title','Login')
 @section('content')
 <style type="text/css">
-  #main{
-    margin-top:2%;
-  }
+ 
 </style>
 <?php
     $httpArray = explode(':', ((isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : 'http'));
     $https = 'https';
 ?>
-@component('components.navbarDiaHora')
-@endcomponent
 <div class="container" id='main'>
         <div class="row justify-content-center">
             <div class='col-md-6' id='divfigure'>

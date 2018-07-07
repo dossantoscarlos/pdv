@@ -1,6 +1,5 @@
 create table if not exists produtos(
   id int not null auto_increment primary key,
-  codigoBarra int not null,
   nomeProduto varchar(90) not null,
   marca char(100) not null,
   descricao char(100) not null,
@@ -14,19 +13,32 @@ create table if not exists fornecedores(
   cpnj char(25) not null primary key,
   nomeEmpresa varchar(50) not null,
   telEmpresa char(16) default null,
-  numLojaEmpresa int not null
+  numLojaEmpresa int not null,
   dataCadastro timestamp not null default CURRENT_TIMESTAMP
 )ENGINE='InnoDB';
 
 create table if not exists estoques(
   id int not null auto_increment primary key,
   qntMin int not null default 10,
-  qntAtual int not null
+  qntAtual int not null,
+  status char(11) not null default 'DISPONIVEL'
 )ENGINE='InnoDB';
 
-create table if not exists registraVendas(
+create table if not exists caixa(
+	id int not null auto_increment primary key,
+	status char(15) not null default 'FECHADO',
+	valorInicial float not null default 0,
+	valorFinal float not null default 0,
+	sangria float not null, 
+	
+)ENGINE='InnoDB';
+
+create table if not exists vendas (
   id int not null auto_increment primary key,
-  valorFinal float not null,
+  moeda char(2) not null default 'R$',
+  valorCompra float not null,
+  valorPago float not null,
+  troco float not null default 0,  
   formaPagamento char(15) not null,
   matrFuncionario int not null,
   itemColecao varchar(255) not null,

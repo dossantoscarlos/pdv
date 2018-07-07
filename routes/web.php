@@ -19,4 +19,6 @@ Route::get('/' , function(){
 
 Route::get('/home' , 'HomeController@index')->name('home');
 Route::get('/pdv', 'PdvController@index')->name('pdv');
-Route::get('/consulta', 'ConsultaController@index')->name('consulta_index');
+Route::get('/consulta', 'ProdutosController@show')->name('show');
+Route::get('/consulta/show', 'ProdutosController@jsonApp');
+Route::get('/consulta/{id}', 'ProdutosController@idModal');

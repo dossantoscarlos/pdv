@@ -21,19 +21,37 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @endif
     <style type="text/css">
-        body {
+       /* body {
           min-height: 100%;
           display: flex;
           flex-direction: column;
         }
         html,body{
             height: 100%;
-            /*background-color: #333;*/
-            background-color: #FFF!important;
+            background-color: #FFF;
+           
         }
         .content{
             flex:1;
         }
+        */
+        
+        html {
+            height: 100%;
+            padding: 0 !important
+          
+        }
+        
+        body {
+          min-height: 100%;
+          padding: 0 !important;
+          margin:0 !important;
+          width: 100%;
+          display: grid;
+          grid-template-rows: 1fr auto;
+          background-color: #FFF!important;
+        }
+
         @font-face{
             font-family: 'Sawasdee';
             @if (in_array($https, $httpArray))
@@ -46,8 +64,13 @@
         }
     </style>
 </head>
-<body>
-    <div class="content">
+<body class="row container-fluid">
+    @if(Auth::check())
+    @else
+        @component('components.navbarDiaHora')
+        @endcomponent
+    @endif
+    <div class="col-md-12">
         @yield('content')
     </div>
     @component('components.footer')

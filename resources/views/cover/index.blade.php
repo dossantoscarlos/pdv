@@ -5,8 +5,6 @@
     $httpArray = explode(':', ((isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : 'http'));
     $https = 'https';
 ?>
-@component('components.navbarDiaHora')
-@endcomponent
 <div class="row col-md-12">
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
         <div class="text-center">
@@ -33,9 +31,7 @@
 </div>
 
 <style type="text/css">
-    a:hover,a:link{
-        text-decoration: none !important; 
-    }
+    
     div.cover-container {
         display: -ms-flexbox;
         display: -webkit-box;

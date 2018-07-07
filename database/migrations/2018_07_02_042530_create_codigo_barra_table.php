@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateCodigoBarraTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('codigobarra', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome_completo',100);
-            $table->string('matricula')->unique();
-            $table->string('password');
-            $table->string('level');
+            $table->integer('serial')->unique();
+            $table->unsignedInteger('id_produto')->unique()->index('codigobarra_id_produto_foreign');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -30,6 +27,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('codigobarra');
     }
 }
