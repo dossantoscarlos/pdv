@@ -1,4 +1,4 @@
-+*-<?php
+<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,7 +15,7 @@ class CreateOperadoresTable extends Migration
     {
         Schema::create('operadores', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('id_users')->index('operadores_id_users_foreign');
+            $table->unsignedInteger('id_funcionario')->index('operadores_id_funcionarios_foreign');
             $table->timestamps();
         });
     }

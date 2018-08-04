@@ -15,10 +15,10 @@ class CreateEstoquesTable extends Migration
     {
         Schema::create('estoques', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('status',['NORMAL','BAIXO','CRITICO'])->default('NORMAL');
+            $table->integer('id_nivel')->unsigned()->index('estoques_id_nivel_foreign')->default(1);
             $table->unsignedInteger('id_produto')->index('estoques_id_produto_foreign')->unique();
-            $table->integer('quantidade_minima')->nullable(false);
-            $table->integer('quantidade_maxima')->nullable(false);
+            $table->integer('quantidade_minima');
+            $table->integer('quantidade_atual');
             $table->timestamps();
         });
     }

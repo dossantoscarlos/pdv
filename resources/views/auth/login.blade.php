@@ -21,6 +21,7 @@
             </div>
             <div class="col-md-6" id='form'>
               <form method="POST" action="{{ route('login') }}">
+                {{csrf_field()}}
                     <div class="row col-md-12 d-flex align-items-end">
                         <img src="{{asset('storage/cadeado.png')}}" class="imgWidht">
                         <span class="col-md-6 mt-auto">
@@ -29,10 +30,10 @@
                         </span>
                     </div>
                     <div class="col-md-9 p-2">
-                      <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-                      @if ($errors->has('email'))
+                      <input id="email" type="text" class="form-control{{ $errors->has('matricula') ? ' is-invalid' : '' }}" name="matricula" value="{{ old('matricula') }}" required autofocus>
+                      @if ($errors->has('matricula'))
                           <span class="invalid-feedback">
-                              <strong>{{ $errors->first('email') }}</strong>
+                              <strong>{{ $errors->first('matricula') }}</strong>
                           </span>
                       @endif
                     </div>

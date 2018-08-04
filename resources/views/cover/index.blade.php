@@ -5,7 +5,7 @@
     $httpArray = explode(':', ((isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : 'http'));
     $https = 'https';
 ?>
-<div class="row col-md-12">
+<section class="col-md-12">
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
         <div class="text-center">
             <main role="main" class="inner cover">
@@ -28,10 +28,12 @@
             </main>
         </div>
     </div>
-</div>
+</section>
 
 <style type="text/css">
-    
+    section{
+        height:80vh;
+    }
     div.cover-container {
         display: -ms-flexbox;
         display: -webkit-box;

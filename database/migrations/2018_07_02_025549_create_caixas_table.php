@@ -15,7 +15,7 @@ class CreateCaixasTable extends Migration
     {
         Schema::create('caixas', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('status',['FECHADO','ABERTO'])->default('FECHADO');
+            $table->integer('id_status')->unsigned()->index('caixas_id_status_foreign')->default(1);
             $table->float('valor_inicial',10,2);
             $table->float('valor_final',10,2);
             $table->unsignedInteger('id_users')->index('caixas_id_users_foreign');

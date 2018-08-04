@@ -34,6 +34,7 @@ class ProdutosController extends Controller
 
     public function jsonApp(Request $request)
     {
+        $resposta = [];
 
         if ($request->has('consultar') || $request->has('code')){
             if(is_numeric($request->input('code')))
@@ -43,6 +44,8 @@ class ProdutosController extends Controller
             elseif(!is_numeric($request->input('consultar')))
             { 
                 $resposta = Produto::buscaNome($request->input('consultar')); 
+            }else{
+                // $responsta = ['Error' => 'Dados invalidos'];
             }
             return response()->json($resposta);
         }

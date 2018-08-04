@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Funcionario;
 
 class RegisterController extends Controller
 {
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/cadastrofuncionario' ;
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -37,8 +39,14 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
-    }
+        $funcionario = DB::table('users')->where('level','root')->first();
+       if (isset($funcionario))
+        {
+            $this->middleware('auth');
+        }else{
+            $this->middleware('guest');
+        }
+     }
 
     /**
      * Get a validator for an incoming registration request.
@@ -49,9 +57,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'matricula' => 'required|string|max:255|unique:users',
+            'matricula' => 'required|max:255|unique:funcionarios',
             'password' => 'required|string|min:6|confirmed',
-            'level' => 'required|string|max:255|unique:users',
+            'level' => 'required|string|max:255',
             
         ]);
     }
@@ -64,10 +72,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'email' => $data['matricula'],
-            'password' => Hash::make($data['password']),
-            'level' => $data['nivel']
+        $funcionarios = DB::table('funcionarios')->where('matricula',$data['matricula'])->first();
+
+        $createUser = DB::table('users')->insertGetId([
+            'id_funcionario' => $funcionario->id,
+            'password' => $data['password'],
+            'level' => $data['level'],
         ]);
+        return $createUser;
     }
 }

@@ -1,7 +1,6 @@
 window.onload=(function () {
 	var inputNomeProduto =document.getElementById('consultar');
 	var inputCodigoBarra =document.getElementById('code'); 
-
 	jsonProduto(inputNomeProduto);
 	jsonProduto(inputCodigoBarra);
 });
@@ -32,11 +31,12 @@ function enviar (inputValue) {
 			data : {
 				consultar : inputValue.value,
 			}, 
-			success:function(result){
+			success:function(result,status){
+				console.log(status);
 				rest(result);
 			}
-		}).fail(function(){
-			alertaModal('Campo nao aceita dados digitado pra busca!!!');
+		}).fail(function(json,data,status){
+			alertaModal('Error ao processar dados entre em contado com o administrador');
 			inputValue.onfocus=function(e){
 				return true;
 			};

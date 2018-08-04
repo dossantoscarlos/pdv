@@ -20,7 +20,6 @@ class CreateCepsTable extends Migration
             $table->string('bairro',50);
             $table->string('cidade',70);
             $table->string('estado',80);
-            $table->string('complemento',90)->nullable();
             $table->timestamps();
         });
     }

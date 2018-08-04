@@ -20,7 +20,6 @@ $https = 'https';
 	border-radius: 20px;
 }
 </style>
-<main>
 	<div class="container">
 		<div class="row" style="margin-top: 2%;">
 			<div class="col-md-8 row">
@@ -34,9 +33,7 @@ $https = 'https';
 							<th>Codigo de barra</th>
 							<th>Quantidade</th>
 						</thead>
-						<tbody id='tbody'>
-
-						</tbody>
+						<tbody id='tbody'></tbody>
 					</table>
 					<img src="{{asset('storage/logo_fundo_branco.png')}}" class="img-fluid col-md-8 offset-md-2">
 				</div>
@@ -63,11 +60,9 @@ $https = 'https';
 				</label>
 			</div>
 		</div>
-		@component('components.modalDescricao')
-		@endcomponent
-
-		@component('components.modalAlert')
-		@endcomponent
 	</div> 
-</main>
+	@component('components.modalDescricao')
+	@endcomponent
+	@component('components.modalAlert')
+	@endcomponent
 @endsection

@@ -15,7 +15,7 @@ class CreateClientesTable extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('cpf',14);
+            $table->unsignedInteger('id_pessoa')->index('clientes_id_pessoa_foreign')->unique();
             $table->timestamps();
         });
     }

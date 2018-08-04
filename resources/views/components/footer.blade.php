@@ -1,40 +1,41 @@
-<footer class="footer container-fluid">
-    <div class="container-fluid row">
-        <copy class='col-md-1'>CopyRight</copy>
-        <div id='statusLabel' class="col-md-2 offset-md-3"> 
-            <span class="label">Status : </span>
-            <span class="">
-               @if (fsockopen("www.google.com", 80, $errno, $errstr, 30)==false)
-               DESCONECTADA
-               @else
-               CONECTADA
-               @endif
-           </span>
-       </div>
-       <div class="col-md-4">
+<footer class="footer col-md-12">
+   <div class="row justify-content-between">
+      <copy>CopyNewPdv</copy>
+      <div id='statusLabel' > 
+        <span class="label">Status : </span>
+        <span class="">
+           @if (fsockopen("www.google.com", 80, $errno, $errstr, 30)==false)
+            DESCONECTADA
+           @else
+            CONECTADA
+           @endif
+        </span>
+      </div>
+      <div>
         <span class="label">HOST : </span>
         <span>{{ gethostbyaddr($_SERVER['REMOTE_ADDR'])}}</span>
-    </div>
-    <div class="col-md-2" >
+      </div>
+      <div class="afasta">
         <span class="label">IP LOCAL : </span>
         <span class="ip">{{ $_SERVER['REMOTE_ADDR']}}</span>
+      </div>
     </div>
-</div>
 </footer>
 
 <style type="text/css">
+.afasta{
+ padding-right: 14px ; 
+}
+copy{
+  padding-left: 14px;
+}
 .footer{
-    margin-top: 2%;
-    min-height: 40px;
-    grid-row-start: 2 !important;
-    grid-row-end: 3 !important;
-    border: 5px solid #333 !important;
     background-color: #333;
     color: #FFF;
-    text-align: center;
-    padding: 6px;
-    border:2px;
-}
+    position: fixed;
+    bottom: 0;
+    margin-left: -1%
+   }
 .label{
     color: rgba(233,233,4,1);
 } 
