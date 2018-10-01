@@ -29,7 +29,16 @@ class UsuarioForm extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nome_completo' => 'required',
+            'cpf' => 'required',
+            'cep_id' =>  'required',
+            'residencia_numero' => 'required',
+            'complemento' => 'required',
+            'sexo' =>  'required',
+            'status_civil' =>  'required',
+            'fixo' =>  'required',
+            'celular' =>  'required',
+            'email' =>  'required'
         ];
     }
 
@@ -41,11 +50,7 @@ class UsuarioForm extends FormRequest
     public function messages()
     {
         return [
-            'users.required' => 'Usuario é requerido',
-            'users.numeric' => 'O usuario invalido use somente numeros',
-            'pass.required' => 'Senha é requerido',
-            'min' => 'senha ou users incorreta',
-
+            'required' => 'campo é requerido',
         ];
     }
 

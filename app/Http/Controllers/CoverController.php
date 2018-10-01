@@ -30,7 +30,7 @@ class CoverController extends Controller
 		if($users){
 			return view('cover.index');
 		}else {
-			return redirect()->route('pessoa.createOne');
+			return redirect()->route('setup');
 		}
       	
     }

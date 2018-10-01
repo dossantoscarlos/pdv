@@ -2,14 +2,8 @@
    <div class="row justify-content-between">
       <copy>CopyNewPdv</copy>
       <div id='statusLabel' > 
-        <span class="label">Status : </span>
-        <span class="">
-           @if (fsockopen("www.google.com", 80, $errno, $errstr, 30)==false)
-            DESCONECTADA
-           @else
-            CONECTADA
-           @endif
-        </span>
+        <span class="label">Internet : </span>
+        <span id="internet"></span>
       </div>
       <div>
         <span class="label">HOST : </span>
@@ -21,7 +15,7 @@
       </div>
     </div>
 </footer>
-
+<script type="text/javascript" src='{{ asset('js/internet.js') }}'></script>
 <style type="text/css">
 .afasta{
  padding-right: 14px ; 

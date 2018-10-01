@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Pessoa;
+use Illuminate\Validation\Validator;
 
 class FuncionarioForm extends FormRequest
 {
@@ -13,12 +16,7 @@ class FuncionarioForm extends FormRequest
      */
     public function authorize()
     {
-        if (Auth::checked()){
-            return true;
-        }
-        else{
-            return false;
-        }
+      return true;
     }
 
     /**
@@ -29,7 +27,8 @@ class FuncionarioForm extends FormRequest
     public function rules()
     {
         return [
-            //
+            
+                     
         ];
     }
 
@@ -41,8 +40,8 @@ class FuncionarioForm extends FormRequest
     public function messages()
     {
         return [
-            'users.required' => 'Usuario é requerido',
-            'users.numeric' => 'O usuario invalido use somente numeros',
+            'nome.required' => 'Nome é requerido',
+            'sobrenome.requerido' => '',
             'pass.required' => 'Senha é requerido',
             'min' => 'senha ou users incorreta',
 

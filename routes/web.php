@@ -24,9 +24,16 @@ Route::get('/painel' , function(){
 	return redirect('/painel/home');
 });
 
-Route::get('/config' , function(){
-	return redirect()->route('pessoa.createOne');
+Route::get('/config' , function()
+{
+	return redirect()->route('setup');
 });
+
+Route::middleware('guest')->prefix('config')->group(function(){
+	Route::get('/setup' ,'SetupController@index')->name('setup');
+	Route::post('/setup', 'SetupController@create')->name('create_setup');
+});
+
 
 Route::middleware('guest')->prefix('operador')->group(function() {
 	Route::get('/boasvindas', 'CoverController@index')->name('cover');
@@ -41,9 +48,3 @@ Route::middleware('auth')->prefix('painel')->group(function(){
 	Route::get('/home' , 'HomeController@index')->name('home');
 
 });
-
-Route::middleware('guest')->prefix('config')->group(function (){
-	Route::get('/usuario', 'PessoasController@configPessoaOne')->name('pessoa.createOne');
-	Route::get('/funcionario[/{id}]','FuncionariosController@configFuncionarioOne')->name('funcionario.createOne');
-});
-
