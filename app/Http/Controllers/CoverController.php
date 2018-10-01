@@ -9,15 +9,15 @@ class CoverController extends Controller
 {
 	private $resul;
 
-	public function __construct (){
-		//validaConfig( , );
-		$users = DB::table('users')->where('level', 'root')->exists();
-		if($users){
-			return $this->middleware('Auth');
-		}else {
-			return $this->middleware('guest');
-		}
-	}
+	// public function __construct (){
+	// 	//validaConfig( , );
+	// 	// $users = DB::table('users')->where('level', 'root')->exists();
+	// 	// if($users){
+	// 	// 	return $this->middleware('Auth');
+	// 	// }else {
+	// 		return $this->middleware('guest');
+	// 	// }
+	// }
 
 	private function validaConfig( $paramOne, $paramTwo)
 	{
@@ -26,12 +26,12 @@ class CoverController extends Controller
 
     public function index()
     {
-    	$users = DB::table('users')->where('level', 'root')->exists();
-		if($users){
+  //   	$users = DB::table('users')->where('level', 'root')->exists();
+		// if($users){
 			return view('cover.index');
-		}else {
-			return redirect()->route('setup');
-		}
+		// }else {
+		// 	return redirect()->route('setup');
+		// }
       	
     }
 }
